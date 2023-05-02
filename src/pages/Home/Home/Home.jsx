@@ -5,6 +5,12 @@ import { Carousel } from 'react-bootstrap';
 import banner1 from '../../../assets/banner1.jpg'
 import banner2 from '../../../assets/banner2.jpg'
 import banner3 from '../../../assets/banner3.jpg'
+import { Button, Card, Col, Container, Row } from 'react-bootstrap';
+import LeftNav from '../../Shared/LeftNav/LeftNav';
+import RightNav from '../../Shared/RightNav/RightNav';
+import ChefCard from '../ChefCard/ChefCard';
+
+
 
 const Home = () => {
     const [index, setIndex] = useState(0);
@@ -64,6 +70,24 @@ const Home = () => {
                     </Carousel.Item>
                 </Carousel>
             </div>
+            {/* section */}
+            <Container>
+                <Row>
+                    <Col lg={3}>
+                        <LeftNav></LeftNav>
+                    </Col>
+                    <Col lg={6}>
+                        <h2>Food details</h2>
+                    </Col>
+                    <Col lg={3}>
+
+                        <RightNav></RightNav>
+                    </Col>
+                </Row>
+            </Container>
+            <Container>
+            <ChefCard></ChefCard>
+            </Container>
         </div>
     );
 };

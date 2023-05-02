@@ -3,14 +3,13 @@ import React from 'react';
 import { Button, ListGroup } from 'react-bootstrap';
 import { FaGoogle, FaGithub,FaFacebook,FaTwitter,FaInstagram } from 'react-icons/fa';
 import FoodZone from '../FoodZone/FoodZone';
+import GoogleGithub from '../../../components/GoogleGithub/GoogleGithub';
 
 const RightNav = () => {
     return (
         <div>
-
-            <h4 className='mt-4'>Login With</h4>
-            <Button variant="outline-primary"><FaGoogle />Login with Google</Button>
-            <Button variant="outline-secondary"><FaGithub></FaGithub>Login with Github</Button>
+            <GoogleGithub></GoogleGithub>
+          
             <div>
                 <h4 className='mt-4'>Find Us On</h4>
                 <ListGroup>
