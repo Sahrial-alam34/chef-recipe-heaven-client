@@ -5,6 +5,7 @@ import { Button, Container, Nav, NavDropdown, Navbar } from 'react-bootstrap';
 import Marquee from 'react-fast-marquee';
 import { Link, NavLink } from 'react-router-dom';
 
+
 const Header = () => {
 
     return (
@@ -20,19 +21,21 @@ const Header = () => {
 
                         </Nav>
                         <Nav>
-                            <NavLink to='/' className='text-white mt-2 p-2 text-decoration-none'>Profile</NavLink>
+                            <Nav.Link eventKey={2} href="/login">
+
+                                <Button variant="secondary">Profile</Button>{' '}
+                            </Nav.Link>
                             <NavLink
                                 to="/register"
                                 className='text-white mt-2 p-2 text-decoration-none'
-                                
+
                             >
                                 Register
                             </NavLink>
 
-                            <Nav.Link eventKey={2} href="/login">
-
-                                <Button variant="secondary">Login</Button>{' '}
-                            </Nav.Link>
+                           
+                           
+                            <NavLink to='/login' className='text-white mt-2 p-2 text-decoration-none'>Login</NavLink>
                         </Nav>
                     </Navbar.Collapse>
                 </Container>

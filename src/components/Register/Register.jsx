@@ -1,17 +1,47 @@
 /* eslint-disable no-unused-vars */
-import React from 'react';
-import GoogleGithub from '../GoogleGithub/GoogleGithub';
+import React, { useContext } from 'react';
 import { Button, Container, Form } from 'react-bootstrap';
 import { Link } from 'react-router-dom';
+import { AuthContext } from '../../providers/AuthProviders';
 
 const Register = () => {
+    const {user, createUser} = useContext(AuthContext)
+    //console.log(createUser)
+
+    const handleRegister = (event)=>{
+        event.preventDefault();
+        const form = event.target;
+        const email = form.email.value;
+        const password = form.password.value;
+        const name = form.name.value;
+        const photo = form.photoUrl.value;
+        console.log(email, password,name,photo)
+        createUser(email, password)
+        .then(result =>{
+            const loggedUser = result.user;
+            console.log(loggedUser);
+            form.reset();
+
+        })
+        .catch(error=>{
+            console.log(error)
+        })
+    }
     return (
-        <Container>
+        <Container className='w-25'>
             <h3>Please Register Your Account</h3>
-            <Form >
+            <Form onSubmit={handleRegister} >
                 <Form.Group className="mb-3" controlId="formBasicEmail">
                     <Form.Label>Name</Form.Label>
                     <Form.Control type="name" name='name' placeholder="Enter your Name" required />
+                    <Form.Text className="text-muted">
+
+
+                    </Form.Text>
+                </Form.Group>
+                <Form.Group className="mb-3" controlId="formBasicEmail">
+                    <Form.Label>Photo URL</Form.Label>
+                    <Form.Control type="name" name='photoUrl' placeholder="Enter Photo URL" required />
                     <Form.Text className="text-muted">
 
 
@@ -38,14 +68,13 @@ const Register = () => {
                 </Button>
             </Form>
             <Link to='/login'>
-                <Button variant="primary" type="submit">
+                <p className='mt-2 mb-2' 
+                type="submit">
                     Already have an account? Please login
-                </Button>
+                </p>
             </Link>
 
-            <div className='text-center'>
-                <GoogleGithub></GoogleGithub>
-            </div>
+            
 
         </Container>
     );
