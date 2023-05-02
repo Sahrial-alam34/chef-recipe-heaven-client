@@ -1,33 +1,41 @@
 /* eslint-disable no-unused-vars */
 import React from 'react';
-import { Container, Nav, NavDropdown, Navbar } from 'react-bootstrap';
+import { Button, Container, Nav, NavDropdown, Navbar } from 'react-bootstrap';
+import Marquee from 'react-fast-marquee';
 import { Link } from 'react-router-dom';
 
 const Header = () => {
     return (
-        <Navbar bg="light" expand="lg">
-        <Container>
-          <Navbar.Brand href="#home">Recipe Heaven</Navbar.Brand>
-          <Navbar.Toggle aria-controls="basic-navbar-nav" />
-          <Navbar.Collapse id="basic-navbar-nav">
-            <Nav className="me-auto">
-              <Nav.Link href="#home">Home</Nav.Link>
-              <Nav.Link href="#link">Link</Nav.Link>
-              <NavDropdown title="Dropdown" id="basic-nav-dropdown">
-                <NavDropdown.Item href="#action/3.1">Action</NavDropdown.Item>
-                <NavDropdown.Item href="#action/3.2">
-                  Another action
-                </NavDropdown.Item>
-                <NavDropdown.Item href="#action/3.3">Something</NavDropdown.Item>
-                <NavDropdown.Divider />
-                <NavDropdown.Item href="#action/3.4">
-                  Separated link
-                </NavDropdown.Item>
-              </NavDropdown>
-            </Nav>
-          </Navbar.Collapse>
-        </Container>
-      </Navbar>
+        <div className='container'>
+            <Navbar collapseOnSelect expand="lg" bg="light" variant="light">
+                <Container>
+                    <Navbar.Brand href="#home">Recipe Heaven</Navbar.Brand>
+                    <Navbar.Toggle aria-controls="responsive-navbar-nav" />
+                    <Navbar.Collapse id="responsive-navbar-nav">
+                        <Nav className="mx-auto">
+                            <Nav.Link href="#features">Home</Nav.Link>
+                            <Nav.Link href="#pricing">Blog</Nav.Link>
+                        
+                        </Nav>
+                        <Nav>
+                            <Nav.Link href="#deets">Profile</Nav.Link>
+                            <Nav.Link eventKey={2} href="#memes">
+                               
+                            <Button variant="secondary">Login</Button>{' '}
+                            </Nav.Link>
+                        </Nav>
+                    </Navbar.Collapse>
+                </Container>
+            </Navbar>
+
+            <div className='d-flex mt-2 mb-2'>
+                <Button variant="danger">Open</Button>
+                <Marquee className='text-danger' speed={100}>
+                    24 Hours Open!!!! place your order now..... 24 Hours Open!!!! place your order now
+                </Marquee>
+            </div>
+        </div>
+
     );
 };
 
