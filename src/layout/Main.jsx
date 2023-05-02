@@ -3,9 +3,10 @@ import React from 'react';
 import { Outlet } from 'react-router-dom';
 import Footer from '../pages/Shared/Footer/Footer';
 import Header from '../pages/Shared/Header/Header';
-import { Col, Container, Row } from 'react-bootstrap';
+import { Button, Card, Col, Container, Row } from 'react-bootstrap';
 import LeftNav from '../pages/Shared/LeftNav/LeftNav';
 import RightNav from '../pages/Shared/RightNav/RightNav';
+import ChefCard from '../pages/Home/ChefCard/ChefCard';
 
 const Main = () => {
     return (
@@ -21,10 +22,13 @@ const Main = () => {
                         <h2>Food details</h2>
                     </Col>
                     <Col lg={3}>
-                       
-                       <RightNav></RightNav>
+
+                        <RightNav></RightNav>
                     </Col>
                 </Row>
+            </Container>
+            <Container>
+            <ChefCard></ChefCard>
             </Container>
             <Footer></Footer>
         </div>

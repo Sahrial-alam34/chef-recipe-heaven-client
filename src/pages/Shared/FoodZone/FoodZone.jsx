@@ -10,8 +10,8 @@ const FoodZone = () => {
             <h4>Food Zone</h4>
             <div >
                 <img className='mb-2' src={foodzone1} style={{width:'275px',height:'180px'}} alt="" />
-                <img className='mb-2' src={foodzone2} alt="" />
-                <img className='mb-2' src={foodzone2} alt="" />
+                <img className='mb-2' src={foodzone2} style={{width:'275px',height:'180px'}} alt="" />
+                <img className='mb-2' src={foodzone3} style={{width:'275px',height:'180px'}} alt="" />
             </div>
         </div>
     );
