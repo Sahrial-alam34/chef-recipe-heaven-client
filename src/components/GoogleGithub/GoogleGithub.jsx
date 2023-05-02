@@ -5,7 +5,7 @@ import { FaGoogle, FaGithub,FaFacebook,FaTwitter,FaInstagram } from 'react-icons
 import { AuthContext } from '../../providers/AuthProviders';
 
 const GoogleGithub = () => {
-    const { signInWithGoogle} = useContext(AuthContext)
+    const { signInWithGoogle,signInWithGithub} = useContext(AuthContext)
     const handleGoogleSignIn = () =>{
         signInWithGoogle()
         .then(result=>{
@@ -16,12 +16,16 @@ const GoogleGithub = () => {
             console.error(error);
         })
     }
+
+    const handleGithubSignIn =()=>{
+        signInWithGithub()
+    }
     return (
         <div>
               <h4 className='mt-4'>Login With</h4>
             <div className=''>
             <Button onClick={handleGoogleSignIn} variant="outline-primary" className='mb-2 m-2'><FaGoogle />Login with Google</Button>
-            <Button variant="outline-secondary" className='mb-2 m-2'><FaGithub></FaGithub>Login with Github</Button>
+            <Button onClick={handleGithubSignIn} variant="outline-secondary" className='mb-2 m-2'><FaGithub></FaGithub>Login with Github</Button>
             </div>
         </div>
     );
