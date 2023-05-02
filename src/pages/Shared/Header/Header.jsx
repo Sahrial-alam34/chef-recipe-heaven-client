@@ -1,13 +1,19 @@
 
 /* eslint-disable no-unused-vars */
-import React from 'react';
+import React, { useContext } from 'react';
 import { Button, Container, Nav, NavDropdown, Navbar } from 'react-bootstrap';
 import Marquee from 'react-fast-marquee';
 import { Link, NavLink } from 'react-router-dom';
+import { AuthContext } from '../../../providers/AuthProviders';
 
 
 const Header = () => {
+    const { user, logOut } = useContext(AuthContext);
 
+    const handleLogOut = () => {
+        logOut()
+      
+    }
     return (
         <div className='container'>
             <Navbar collapseOnSelect expand="lg" bg="success" variant="success" >
@@ -21,23 +27,24 @@ const Header = () => {
 
                         </Nav>
                         <Nav>
-                            <Nav.Link eventKey={2} href="/login">
 
-                                <Button variant="secondary">Profile</Button>{' '}
-                            </Nav.Link>
-                            <NavLink
-                                to="/register"
-                                className='text-white mt-2 p-2 text-decoration-none'
+                            {
+                                user ? <span className='d-flex'>
+                                    <img className='rounded-circle mt-2' style={{ height: '40px', width: '40px' }} src={user.photoURL} alt="" /> <button onClick={handleLogOut} className='btn btn secondary text-white'>Sign Out</button> </span> : <div>
+                                    <NavLink
+                                        to="/register"
+                                        className='text-white mt-2 p-2 text-decoration-none'
 
-                            >
-                                Register
-                            </NavLink>
+                                    >
+                                        Register
+                                    </NavLink>
+                                    <NavLink to='/login' className='text-white mt-2 p-2 text-decoration-none'>Login</NavLink>
+                                </div>
+                            }
 
-                           
-                           
-                            <NavLink to='/login' className='text-white mt-2 p-2 text-decoration-none'>Login</NavLink>
                         </Nav>
                     </Navbar.Collapse>
+                    
                 </Container>
             </Navbar>
 
