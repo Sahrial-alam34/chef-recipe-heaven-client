@@ -1,29 +1,35 @@
+
 /* eslint-disable no-unused-vars */
 import React from 'react';
 import { Button, Container, Nav, NavDropdown, Navbar } from 'react-bootstrap';
 import Marquee from 'react-fast-marquee';
-import { Link } from 'react-router-dom';
+import { Link, NavLink } from 'react-router-dom';
 
 const Header = () => {
+
     return (
         <div className='container'>
-            <Navbar collapseOnSelect expand="lg" bg="light" variant="light">
+            <Navbar collapseOnSelect expand="lg" bg="success" variant="success" >
                 <Container>
-                    <Navbar.Brand href="#home">Recipe Heaven</Navbar.Brand>
+                    <Navbar.Brand className='text-white' href="/">Recipe Heaven</Navbar.Brand>
                     <Navbar.Toggle aria-controls="responsive-navbar-nav" />
                     <Navbar.Collapse id="responsive-navbar-nav">
                         <Nav className="mx-auto">
-                            <Link to='/'>Home</Link>
-                            <Link to='/blog'>Blog</Link>
+                            <NavLink to='/' className='text-white mt-2 p-2 text-decoration-none'>Home</NavLink>
+                            <NavLink to='/blog' className='text-white mt-2 p-2 text-decoration-none' >Blog</NavLink>
 
                         </Nav>
                         <Nav>
-                            <Nav.Link href="#deets">Profile</Nav.Link>
+                            <NavLink to='/' className='text-white mt-2 p-2 text-decoration-none'>Profile</NavLink>
+                            <NavLink
+                                to="/register"
+                                className='text-white mt-2 p-2 text-decoration-none'
+                                
+                            >
+                                Register
+                            </NavLink>
 
-
-                            <Link to='/register'>Register</Link>
-
-                            <Nav.Link eventKey={2} href="#memes">
+                            <Nav.Link eventKey={2} href="/login">
 
                                 <Button variant="secondary">Login</Button>{' '}
                             </Nav.Link>
