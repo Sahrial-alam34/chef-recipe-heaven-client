@@ -3,6 +3,7 @@ import React, { useContext, useState } from 'react';
 import { Button, Container, Form } from 'react-bootstrap';
 import { Link } from 'react-router-dom';
 import { AuthContext } from '../../providers/AuthProviders';
+import { updateProfile } from 'firebase/auth';
 
 const Register = () => {
     const { user, createUser } = useContext(AuthContext);
@@ -34,6 +35,7 @@ const Register = () => {
                 setError('');
 
                 setSuccess('User has been created successfully');
+                updateUserData(result.user, name, photo)
                 form.reset();
 
 
@@ -43,6 +45,19 @@ const Register = () => {
                 setError(error.message);
                 setSuccess('');
             })
+    }
+
+    const updateUserData = (user, name,photo) =>{
+        updateProfile(user,{
+            displayName: name,
+            photoURL: photo
+        })
+        .then(()=>{
+            console.log('user name and url updated')
+        })
+        .catch(error =>{
+            setError(error.message);
+        })
     }
     return (
         <Container className='w-25'>

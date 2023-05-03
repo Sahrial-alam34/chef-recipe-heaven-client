@@ -1,15 +1,19 @@
 /* eslint-disable no-unused-vars */
-import React, { useContext, useState } from 'react';
+import React, { useContext, useRef, useState } from 'react';
 import { Button, Container, Form } from 'react-bootstrap';
 import { Link } from 'react-router-dom';
 import GoogleGithub from '../GoogleGithub/GoogleGithub';
 import { AuthContext } from '../../providers/AuthProviders';
+import { sendPasswordResetEmail } from 'firebase/auth';
+import { toast } from 'react-toastify';
 
 
 const Login = () => {
-    const {signIn} = useContext(AuthContext)
+    const {signIn,resetPassword} = useContext(AuthContext)
     const [error, setError] = useState('');
     const [success, setSuccess] = useState('');
+    const emailRef = useRef();
+
     const handleLogin = (event) =>{
         event.preventDefault();
         const form = event.target;
@@ -35,6 +39,7 @@ const Login = () => {
     
     }
 
+  
    
     return (
         <Container className='w-25'>
@@ -42,7 +47,7 @@ const Login = () => {
             <Form onSubmit={handleLogin}>
                 <Form.Group className="mb-3" controlId="formBasicEmail">
                     <Form.Label>Email address</Form.Label>
-                    <Form.Control name='email' type="email" placeholder="Enter email" required />
+                    <Form.Control name='email' type="email" ref={emailRef} placeholder="Enter email"  />
                     <Form.Text className="text-muted">
 
 
@@ -62,6 +67,7 @@ const Login = () => {
                     Login
                 </Button>
             </Form>
+            
             <Link to='/register'>
                 <p className='mt-2 mb-2' >
                     New to Web? Register
