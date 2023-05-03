@@ -1,5 +1,5 @@
 /* eslint-disable no-unused-vars */
-import React, { useContext } from 'react';
+import React, { useContext, useState } from 'react';
 import { Button, Container, Form } from 'react-bootstrap';
 import { Link } from 'react-router-dom';
 import GoogleGithub from '../GoogleGithub/GoogleGithub';
@@ -8,6 +8,8 @@ import { AuthContext } from '../../providers/AuthProviders';
 
 const Login = () => {
     const {signIn} = useContext(AuthContext)
+    const [error, setError] = useState('');
+    const [success, setSuccess] = useState('');
     const handleLogin = (event) =>{
         event.preventDefault();
         const form = event.target;
@@ -19,10 +21,15 @@ const Login = () => {
         .then(result=>{
             const loggedUser = result.user;
             console.log(loggedUser);
+            setError('')
+            setSuccess('Login in Successfully')
             form.reset();
         })
         .catch(error=>{
             console.log(error);
+            // setError('Email and Password does not match ');
+            setError(error.message)
+            setSuccess('')
         })
 
     
@@ -49,6 +56,8 @@ const Login = () => {
                 <Form.Group className="mb-3" controlId="formBasicCheckbox">
                     <Form.Check type="checkbox" label="Check me out" />
                 </Form.Group>
+                <p className='text-danger'>{error}</p>
+                <p className='text-success'>{success}</p>
                 <Button variant="primary" type="submit">
                     Login
                 </Button>

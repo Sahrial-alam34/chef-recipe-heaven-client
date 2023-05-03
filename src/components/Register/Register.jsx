@@ -1,31 +1,48 @@
 /* eslint-disable no-unused-vars */
-import React, { useContext } from 'react';
+import React, { useContext, useState } from 'react';
 import { Button, Container, Form } from 'react-bootstrap';
 import { Link } from 'react-router-dom';
 import { AuthContext } from '../../providers/AuthProviders';
 
 const Register = () => {
-    const {user, createUser} = useContext(AuthContext)
+    const { user, createUser } = useContext(AuthContext);
+    const [error, setError] = useState('');
+    const [success, setSuccess] = useState('');
     //console.log(createUser)
 
-    const handleRegister = (event)=>{
+    const handleRegister = (event) => {
         event.preventDefault();
+        setSuccess('');
         const form = event.target;
         const email = form.email.value;
         const password = form.password.value;
         const name = form.name.value;
         const photo = form.photoUrl.value;
-        console.log(email, password,name,photo)
-        createUser(email, password)
-        .then(result =>{
-            const loggedUser = result.user;
-            console.log(loggedUser);
-            form.reset();
+        console.log(email, password, name, photo)
 
-        })
-        .catch(error=>{
-            console.log(error)
-        })
+
+        //validation
+        if(password.length < 6){
+            setError('Please add at least 6 characters in your password');
+            return;
+        }
+
+        createUser(email, password)
+            .then(result => {
+                const loggedUser = result.user;
+                console.log(loggedUser);
+                setError('');
+
+                setSuccess('User has been created successfully');
+                form.reset();
+
+
+            })
+            .catch(error => {
+                console.error(error.message);
+                setError(error.message);
+                setSuccess('');
+            })
     }
     return (
         <Container className='w-25'>
@@ -63,18 +80,21 @@ const Register = () => {
                 <Form.Group className="mb-3" controlId="formBasicCheckbox">
                     <Form.Check type="checkbox" label="Check me out" />
                 </Form.Group>
+                <p className='text-danger'>{error}</p>
+                <p className='text-success'>{success}</p>
+
                 <Button variant="primary" type="submit">
                     Register
                 </Button>
             </Form>
             <Link to='/login'>
-                <p className='mt-2 mb-2' 
-                type="submit">
+                <p className='mt-2 mb-2'
+                    type="submit">
                     Already have an account? Please login
                 </p>
             </Link>
 
-            
+
 
         </Container>
     );
