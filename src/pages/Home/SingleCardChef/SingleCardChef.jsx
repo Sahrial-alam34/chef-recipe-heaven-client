@@ -5,10 +5,11 @@ import { Button, Card } from 'react-bootstrap';
 import { Link } from 'react-router-dom';
 
 const SingleCardChef = ({ chef }) => {
+    console.log('chef',chef)
    
     const {id,chefImg,name,experience,likes,numberOfRecipe,recipeDetails} = chef
     return (
-        <div >
+        <div className='col-6 col-md-3 '>
             {
                 id
             }
@@ -28,7 +29,7 @@ const SingleCardChef = ({ chef }) => {
                     
                     <p>Number of Recipe:{numberOfRecipe}</p>
                     
-                    <Link>Recipe Details</Link>
+                    <Link to={`/chefDetail/${chef?.id}`} className='text-black'>Recipe Details</Link>
                 </Card.Body>
             </Card>
         </div>

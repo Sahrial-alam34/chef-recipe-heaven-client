@@ -6,6 +6,10 @@ import Register from "../components/Register/Register";
 import Login from "../components/Login/Login";
 import Blog from "../components/Blog/Blog";
 import PrivateRoute from "./PrivateRoute";
+import FoodCategory from "../pages/Home/FoodCategory/FoodCategory";
+import ChefDetail from "../pages/Home/ChefDetail/ChefDetail";
+import FoodLayout from "../layout/FoodLayout";
+import ChefLayout from "../layout/ChefLayout";
 
 const router = createBrowserRouter([
     {
@@ -27,6 +31,25 @@ const router = createBrowserRouter([
             {
                 path:'/blog',
                 element:<PrivateRoute><Blog></Blog></PrivateRoute>
+            },
+            {
+                path: '/foodCategory/:id',
+                element : <FoodCategory></FoodCategory>,
+                loader: ({params}) => fetch(`http://localhost:5000/foodCategories/${params.id}`)
+            },
+            {
+                path:'food/:id',
+                element: <FoodLayout></FoodLayout>
+            },
+            {
+                path: '/chefDetail/:id',
+                element: <ChefDetail></ChefDetail>,
+                loader: ({params}) => fetch(`http://localhost:5000/chef/${params.id}`)
+            },
+        
+            {
+                path:'chef/:id',
+                element:<ChefLayout></ChefLayout>
             }
 
         ]

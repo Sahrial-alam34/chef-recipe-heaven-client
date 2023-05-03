@@ -16,7 +16,7 @@ const ChefCard = () => {
     return (
         <div>
                 <h2>Chef Details</h2>
-                <div className='d-flex gap-5'>
+                <div className='container row gap-3 justify-content-between mb-5'>
                 {
                     chefDetails.map(chef=><SingleCardChef
                     key={chef.id}
