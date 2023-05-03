@@ -6,8 +6,11 @@ const Blog = () => {
     const {user} = useContext(AuthContext)
     console.log(user);
     return (
-        <div>
+        <div className='container'>
             <h2>This is blog page: {user && user.displayName}</h2>
+            <p>1. Differences between uncontrolled and controlled components</p>
+            <p>Ans: </p>
+
         </div>
     );
 };
