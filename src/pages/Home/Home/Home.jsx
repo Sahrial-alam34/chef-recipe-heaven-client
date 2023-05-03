@@ -9,6 +9,7 @@ import { Button, Card, Col, Container, Row } from 'react-bootstrap';
 import LeftNav from '../../Shared/LeftNav/LeftNav';
 import RightNav from '../../Shared/RightNav/RightNav';
 import ChefCard from '../ChefCard/ChefCard';
+import HomeMiddle from '../HomeMiddle/HomeMiddle';
 
 
 
@@ -77,7 +78,8 @@ const Home = () => {
                         <LeftNav></LeftNav>
                     </Col>
                     <Col lg={6}>
-                        <h2>Food details</h2>
+                        
+                        <HomeMiddle></HomeMiddle>
                     </Col>
                     <Col lg={3}>
 

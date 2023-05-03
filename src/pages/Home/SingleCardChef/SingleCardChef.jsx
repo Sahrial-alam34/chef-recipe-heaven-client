@@ -5,16 +5,14 @@ import { Button, Card } from 'react-bootstrap';
 import { Link } from 'react-router-dom';
 
 const SingleCardChef = ({ chef }) => {
-    console.log('chef',chef)
+    //console.log('chef',chef)
    
     const {id,chefImg,name,experience,likes,numberOfRecipe,recipeDetails} = chef
     return (
         <div className='col-6 col-md-3 '>
-            {
-                id
-            }
+          
             <Card style={{ width: '18rem' }}>
-                <Card.Img variant="top" src={chefImg}
+                <Card.Img variant="top" style={{height:'250px'}} src={chefImg}
                  />
                 <Card.Body>
                     <Card.Title>

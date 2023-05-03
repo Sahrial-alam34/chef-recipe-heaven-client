@@ -10,15 +10,19 @@ import FoodCategory from "../pages/Home/FoodCategory/FoodCategory";
 import ChefDetail from "../pages/Home/ChefDetail/ChefDetail";
 import FoodLayout from "../layout/FoodLayout";
 import ChefLayout from "../layout/ChefLayout";
+import HomeMiddle from "../pages/Home/HomeMiddle/HomeMiddle";
+import ErrorPage from "../components/ErrorPage/ErrorPage";
 
 const router = createBrowserRouter([
     {
         path: '/',
         element: <Main></Main>,
+        errorElement:<ErrorPage></ErrorPage>,
         children: [
             {
                 path: '/',
-                element: <Home></Home>
+                element: <Home></Home>,
+
             },
             {
               path:'register',
@@ -43,14 +47,15 @@ const router = createBrowserRouter([
             },
             {
                 path: '/chefDetail/:id',
-                element: <ChefDetail></ChefDetail>,
+                element: <PrivateRoute><ChefDetail></ChefDetail></PrivateRoute>,
                 loader: ({params}) => fetch(`http://localhost:5000/chef/${params.id}`)
             },
         
             {
                 path:'chef/:id',
                 element:<ChefLayout></ChefLayout>
-            }
+            },
+        
 
         ]
     }

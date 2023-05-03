@@ -20,7 +20,7 @@ const ChefDetail = () => {
         <div className='container'>
             <Card >
                 <Card.Img
-                    style={{ width: '800px', height: '300px' }} className='p-2 mx-auto' variant="top" src=
+                    style={{ width: '500px', height: '300px' }} className='p-2 mx-auto' variant="top" src=
                     {chefImg} />
                 <Card.Body>
                     <Card.Title>

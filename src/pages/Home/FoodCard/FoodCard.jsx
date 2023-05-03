@@ -8,7 +8,8 @@ const FoodCard = ({ food }) => {
     return (
         <div className='container'>
             <Card className="mb-4">
-                <img className='mw-100 mh-100' src={image_url} alt="" />
+                <img className='mx-auto p-2'
+                style={{height:'300px', width:'250px'}} src={image_url} alt="" />
                 <Card.Body>
                     <Card.Title>
                         {title}
