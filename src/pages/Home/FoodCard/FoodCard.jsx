@@ -7,29 +7,33 @@ const FoodCard = ({ food }) => {
     const { title, details, image_url, rating } = food;
     return (
         <div className='container'>
-            <Card className="mb-4">
-                <img className='mx-auto p-2'
-                style={{height:'300px', width:'250px'}} src={image_url} alt="" />
-                <Card.Body>
-                    <Card.Title>
-                        {title}
-                    </Card.Title>
-                    <Card.Text>
-
-                        {details}
-                    </Card.Text>
-
-                </Card.Body>
-                <Card.Footer className="text-muted">
+            <Card className="mb-4 border-0 shadow">
+                <div className='d-flex'>
                     <div>
-                        <span className='me-2'>
-                           Rating: {rating.number}
-                        </span>
-                        <span>
-                            Badge: {rating.badge}
-                        </span>
+                        <img className='mx-auto p-2'
+                            style={{ height: '300px', width: '250px' }} src={image_url} alt="" />
                     </div>
-                </Card.Footer>
+                    <div>
+                        <Card.Body>
+                            <Card.Title>
+                                {title}
+                            </Card.Title>
+                            <Card.Text>
+
+                                {details}
+                            </Card.Text>
+                            <div>
+                                <span className='me-2'>
+                                    Rating: {rating.number}
+                                </span>
+                                <span>
+                                    Badge: {rating.badge}
+                                </span>
+                            </div>
+                        </Card.Body>
+                        
+                    </div>
+                </div>
             </Card>
         </div>
     );

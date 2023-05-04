@@ -2,6 +2,7 @@
 import React, { useEffect, useState } from 'react';
 import { Button, Card } from 'react-bootstrap';
 import { useLoaderData, useParams } from 'react-router-dom';
+import { toast } from 'react-hot-toast';
 
 
 const ChefDetail = () => {
@@ -21,6 +22,7 @@ const ChefDetail = () => {
     const handleFavorite = event => {
 
         setFavorite(true);
+        return toast.success('Save as Favorite!!!')
     }
     return (
         <div className='container'>

@@ -9,7 +9,7 @@ const FoodCategory = () => {
     // console.log('food category',foodCategory)
     return (
         <div>
-            <h2> This  category: {foodCategory.length}</h2>
+            {/* <h2> This  category: {foodCategory.length}</h2> */}
             {
                 foodCategory.map(food => <FoodCard
                     key={food._id}
