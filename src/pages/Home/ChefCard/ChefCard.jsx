@@ -8,7 +8,7 @@ const ChefCard = () => {
     const [chefDetails, setChefDetails] = useState([]);
 
     useEffect(()=>{
-        fetch('http://localhost:5000/chefDetails')
+        fetch('https://assignment10-chef-recipe-hunter-react-firebase-s-sahrial-alam34.vercel.app/chefDetails')
         .then(res => res.json())
         .then(data =>setChefDetails(data))
         .catch(error => console.error(error))

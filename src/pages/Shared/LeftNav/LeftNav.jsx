@@ -7,7 +7,7 @@ const LeftNav = () => {
     const [categories, setCategories] = useState([]);
 
     useEffect(() => {
-        fetch('http://localhost:5000/foodCategories')
+        fetch('https://assignment10-chef-recipe-hunter-react-firebase-s-sahrial-alam34.vercel.app/foodCategories')
             .then(res => res.json())
             .then(data => setCategories(data))
             .catch(error => console.error(error))

@@ -13,4 +13,7 @@ Think about a section displaying the information of the selected chef's recipes 
 * "active route" to indicate the route which you are visiting
 
 ## Live Link
-Hosted in Netlify -> [RecipeHeaven](https://assignment9-job-heaven-react-tailwind.netlify.app/)
+Hosted in Vercel Client -> [RecipeHeaven](https://chef-recipe-hunter-36b56.web.app)
+## Live Link
+Hosted in Vercel Server -> [RecipeHeaven](https://assignment10-chef-recipe-hunter-react-firebase-s-sahrial-alam34.vercel.app
+)

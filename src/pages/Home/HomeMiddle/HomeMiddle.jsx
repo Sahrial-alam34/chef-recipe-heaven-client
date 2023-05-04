@@ -7,7 +7,7 @@ const HomeMiddle = () => {
   // const [details, setDetails]= useState([]);
   // console.log(details)
   // useEffect(() => {
-  //     fetch('http://localhost:5000/foodCategories/0')
+  //     fetch('https://assignment10-chef-recipe-hunter-react-firebase-s-sahrial-alam34.vercel.app/foodCategories/0')
   //         .then(res => res.json())
   //         .then(data => setDetails(data))
   //         .catch(error => console.error(error))

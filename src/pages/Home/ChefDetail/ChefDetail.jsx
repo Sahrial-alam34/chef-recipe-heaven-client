@@ -5,12 +5,13 @@ import { useLoaderData, useParams } from 'react-router-dom';
 import { toast } from 'react-hot-toast';
 
 
+
 const ChefDetail = () => {
     const { id } = useParams()
     const [favorite, setFavorite] = useState(false)
     const [chefInfo, setChefInfo] = useState({})
     useEffect(() => {
-        fetch(`http://localhost:5000/chefDetails/${id}`)
+        fetch(`https://assignment10-chef-recipe-hunter-react-firebase-s-sahrial-alam34.vercel.app/chefDetails/${id}`)
             .then((res) => res.json())
             .then((data) => setChefInfo(data))
     }, [id])

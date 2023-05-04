@@ -40,7 +40,7 @@ const router = createBrowserRouter([
             {
                 path: '/foodCategory/:id',
                 element : <FoodCategory></FoodCategory>,
-                loader: ({params}) => fetch(`http://localhost:5000/foodCategories/${params.id}`)
+                loader: ({params}) => fetch(`https://assignment10-chef-recipe-hunter-react-firebase-s-sahrial-alam34.vercel.app/foodCategories/${params.id}`)
             },
             {
                 path:'food/:id',
@@ -49,7 +49,7 @@ const router = createBrowserRouter([
             {
                 path: '/chefDetail/:id',
                 element: <PrivateRoute><ChefDetail></ChefDetail></PrivateRoute>,
-                loader: ({params}) => fetch(`http://localhost:5000/chef/${params.id}`)
+                loader: ({params}) => fetch(`https://assignment10-chef-recipe-hunter-react-firebase-s-sahrial-alam34.vercel.app/chef/${params.id}`)
             },
         
             {
