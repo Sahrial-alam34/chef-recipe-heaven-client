@@ -4,7 +4,7 @@ import { Container } from 'react-bootstrap';
 
 const Footer = () => {
     return (
-        <Container>
+        <Container fluid>
             <footer className='divide-y bg-success text-white'>
                 <div></div>
                 <div className='py-6 text-sm text-center bg'>

@@ -6,6 +6,7 @@ import { useLoaderData, useParams } from 'react-router-dom';
 
 const ChefDetail = () => {
     const { id } = useParams()
+    const [favorite, setFavorite]= useState(false)
     const [chefInfo, setChefInfo] = useState({})
     useEffect(() => {
         fetch(`http://localhost:5000/chefDetails/${id}`)
@@ -14,8 +15,13 @@ const ChefDetail = () => {
     }, [id])
 
     const { name, chefImg, numberOfRecipe, shortBio, likes, experience, recipeName1, recipeName2, recipeName3, ingredients1, ingredients2, ingredients3 } = chefInfo
-    console.log('ig', ingredients1)
+    //console.log('ig', ingredients1)
     // console.log('element',ingredients1[0])
+
+    const handleFavorite =event=>{
+        
+        setFavorite(true);
+    }
     return (
         <div className='container'>
             <Card >
@@ -173,6 +179,10 @@ const ChefDetail = () => {
                         </tr>
                     </tbody>
                 </table>
+              <div className='d-flex justify-content-center'>  <Button
+                onClick={handleFavorite}
+                disabled={favorite}
+               className='mb-2' >Favorite </Button></div>
             </div>
         </div>
     );
