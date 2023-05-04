@@ -10,6 +10,7 @@ const Register = () => {
     const [error, setError] = useState('');
     const [success, setSuccess] = useState('');
     //console.log(createUser)
+    const [accepted, setAccepted] = useState(false);
 
     const handleRegister = (event) => {
         event.preventDefault();
@@ -59,6 +60,10 @@ const Register = () => {
             setError(error.message);
         })
     }
+    const handleAccepted = event =>{
+        setAccepted(event.target.checked)
+
+    }
     return (
         <Container className='w-25'>
             <h3>Please Register Your Account</h3>
@@ -93,12 +98,16 @@ const Register = () => {
                     <Form.Control type="password" name='password' placeholder="Password" required />
                 </Form.Group>
                 <Form.Group className="mb-3" controlId="formBasicCheckbox">
-                    <Form.Check type="checkbox" label="Check me out" />
+                    <Form.Check 
+                    onClick={handleAccepted}
+                    type="checkbox" 
+                    label={<>Accept <Link to='/terms'>Terms and Conditions</Link></>} 
+                    />
                 </Form.Group>
                 <p className='text-danger'>{error}</p>
                 <p className='text-success'>{success}</p>
 
-                <Button variant="primary" type="submit">
+                <Button variant="primary" disabled={!accepted} type="submit">
                     Register
                 </Button>
             </Form>

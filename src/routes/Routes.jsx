@@ -12,6 +12,7 @@ import FoodLayout from "../layout/FoodLayout";
 import ChefLayout from "../layout/ChefLayout";
 import HomeMiddle from "../pages/Home/HomeMiddle/HomeMiddle";
 import ErrorPage from "../components/ErrorPage/ErrorPage";
+import Terms from "../components/Terms/Terms";
 
 const router = createBrowserRouter([
     {
@@ -55,6 +56,10 @@ const router = createBrowserRouter([
                 path:'chef/:id',
                 element:<ChefLayout></ChefLayout>
             },
+            {
+                path:'terms',
+                element:<Terms></Terms>
+            }
         
 
         ]

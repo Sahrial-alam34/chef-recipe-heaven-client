@@ -63,7 +63,7 @@ const Login = () => {
                     <Form.Control name='password' type="password" placeholder="Password" required />
                 </Form.Group>
                 <Form.Group className="mb-3" controlId="formBasicCheckbox">
-                    <Form.Check type="checkbox" label="Check me out" />
+                    {/* <Form.Check type="checkbox" label="Check me out" /> */}
                 </Form.Group>
                 <p className='text-danger'>{error}</p>
                 <p className='text-success'>{success}</p>
