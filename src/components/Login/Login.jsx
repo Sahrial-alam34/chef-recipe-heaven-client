@@ -12,7 +12,7 @@ const Login = () => {
     const [error, setError] = useState('');
     const [success, setSuccess] = useState('');
     const location = useLocation();
-    console.log('login location', location.state.from)
+    //console.log('login location', location.state.from)
     const from = location.state?.from?.pathname ||'/'
     const emailRef = useRef();
     const navigate = useNavigate();

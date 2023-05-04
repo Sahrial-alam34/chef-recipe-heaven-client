@@ -3,7 +3,7 @@
 import React, { useContext } from 'react';
 import { Button, Container, Nav, NavDropdown, Navbar, OverlayTrigger, Tooltip, } from 'react-bootstrap';
 import Marquee from 'react-fast-marquee';
-import { Link, NavLink } from 'react-router-dom';
+import { Link, NavLink, useLocation } from 'react-router-dom';
 import { AuthContext } from '../../../providers/AuthProviders';
 import './Header.css'
 
@@ -15,6 +15,7 @@ const Header = () => {
         logOut()
 
     }
+    const location = useLocation();
     return (
         <div className='container'>
             <Navbar collapseOnSelect expand="lg" bg="success" variant="success" >
@@ -23,8 +24,8 @@ const Header = () => {
                     <Navbar.Toggle aria-controls="responsive-navbar-nav" />
                     <Navbar.Collapse id="responsive-navbar-nav">
                         <Nav className="mx-auto">
-                            <NavLink to='/' className='text-white mt-2 p-2 text-decoration-none'>Home</NavLink>
-                            <NavLink to='/blog' className='text-white mt-2 p-2 text-decoration-none' >Blog</NavLink>
+                            <NavLink  to='/' activeclassname="active" className='text-white mt-2 p-2 text-decoration-none nav-link'>Home</NavLink>
+                            <NavLink to='/blog' activeclassname="active" className='text-white mt-2 p-2 text-decoration-none nav-link' >Blog</NavLink>
 
                         </Nav>
                         <Nav>
@@ -46,15 +47,16 @@ const Header = () => {
                                                 <p>{user.displayName}</p>
                                             </div> */}
                                             <button onClick={handleLogOut} className='btn btn secondary text-white'>Sign Out</button> </span>
-                                    </div> : <div>
+                                    </div> : <div className='d-flex'>
                                         <NavLink
                                             to="/register"
-                                            className='text-white mt-2 p-2 text-decoration-none'
+                                            activeclassname="active" 
+                                            className='text-white mt-2 p-2 text-decoration-none nav-link'
 
                                         >
                                             Register
                                         </NavLink>
-                                        <NavLink to='/login' className='text-white mt-2 p-2 text-decoration-none'>Login</NavLink>
+                                        <NavLink to="/login"  activeclassname="active"  className='text-white mt-2  text-decoration-none nav-link'>Login</NavLink>
                                     </div>
 
                             }
