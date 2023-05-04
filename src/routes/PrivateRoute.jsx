@@ -2,10 +2,13 @@
 /* eslint-disable no-unused-vars */
 import React, { useContext } from 'react';
 import { AuthContext } from '../providers/AuthProviders';
-import { Navigate } from 'react-router-dom';
+import { Navigate, useLocation } from 'react-router';
 
 const PrivateRoute = ({children}) => {
     const {user,loading} = useContext(AuthContext);
+    const location = useLocation();
+    console.log(location);
+    
     if(loading){
         return <div className="spinner-border text-success" role="status">
         <span className="visually-hidden">Loading...</span>
@@ -14,6 +17,6 @@ const PrivateRoute = ({children}) => {
     if(user){
         return children;
     }
-    return <Navigate to='/login'></Navigate>
+    return <Navigate state={{from: location}} to='/login' replace></Navigate>
 }
 export default PrivateRoute;

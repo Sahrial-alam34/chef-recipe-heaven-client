@@ -1,18 +1,21 @@
 /* eslint-disable no-unused-vars */
 import React, { useContext, useRef, useState } from 'react';
 import { Button, Container, Form } from 'react-bootstrap';
-import { Link } from 'react-router-dom';
+import { Link, useLocation, useNavigate } from 'react-router-dom';
 import GoogleGithub from '../GoogleGithub/GoogleGithub';
 import { AuthContext } from '../../providers/AuthProviders';
-import { sendPasswordResetEmail } from 'firebase/auth';
-import { toast } from 'react-toastify';
+
 
 
 const Login = () => {
     const {signIn,resetPassword} = useContext(AuthContext)
     const [error, setError] = useState('');
     const [success, setSuccess] = useState('');
+    const location = useLocation();
+    console.log('login location', location.state.from)
+    const from = location.state?.from?.pathname ||'/'
     const emailRef = useRef();
+    const navigate = useNavigate();
 
     const handleLogin = (event) =>{
         event.preventDefault();
@@ -27,6 +30,7 @@ const Login = () => {
             console.log(loggedUser);
             setError('')
             setSuccess('Login in Successfully')
+            navigate(from, {replace: true})
             form.reset();
         })
         .catch(error=>{
