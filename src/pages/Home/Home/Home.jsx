@@ -23,7 +23,7 @@ const Home = () => {
         <div>
             {/* banner */}
             <div className='container'>
-                <Carousel activeIndex={index} onSelect={handleSelect}>
+                <Carousel className='mb-5' activeIndex={index} onSelect={handleSelect}>
                     <Carousel.Item>
                         <img
                             className="d-block w-100 "
