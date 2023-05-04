@@ -11,7 +11,7 @@ const SingleCardChef = ({ chef }) => {
     return (
         <div className='col-6 col-md-3 '>
           
-            <Card style={{ width: '18rem' }}>
+            <Card className='border-0 shadow' style={{ width: '18rem' }}>
                 <Card.Img variant="top" style={{height:'250px'}} src={chefImg}
                  />
                 <Card.Body>

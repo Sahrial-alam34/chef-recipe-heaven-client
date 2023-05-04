@@ -21,7 +21,7 @@ const HomeMiddle = () => {
               })
               
             } */}
-      <Card className='mb-2'>
+      <Card className='mb-2 border-0 shadow'>
         <Card.Img
           style={{ width: '300px', height: '300px' }} className='p-2 mx-auto' variant="top" src="https://i.ibb.co/2vgqwKh/Turkish-Chicken.jpg" />
         <Card.Body>
@@ -38,7 +38,7 @@ const HomeMiddle = () => {
           </div>
         </Card.Body>
       </Card>
-      <Card >
+      <Card className=' border-0 shadow'>
         <Card.Img
           style={{ width: '300px', height: '300px' }} className='p-2 mx-auto' variant="top" src=" https://i.ibb.co/NrrsFfy/vegetarian-stuffed-peppers-1.jpg" />
         <Card.Body>

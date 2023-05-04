@@ -15,7 +15,7 @@ const ChefCard = () => {
     },[])
     return (
         <div>
-                <h2>Chef Details</h2>
+                <h2 className='d-flex justify-content-center mb-5 mt-5'>Chef Details</h2>
                 <div className='container row gap-3 justify-content-between mb-5'>
                 {
                     chefDetails.map(chef=><SingleCardChef

@@ -6,7 +6,7 @@ import { useLoaderData, useParams } from 'react-router-dom';
 
 const ChefDetail = () => {
     const { id } = useParams()
-    const [favorite, setFavorite]= useState(false)
+    const [favorite, setFavorite] = useState(false)
     const [chefInfo, setChefInfo] = useState({})
     useEffect(() => {
         fetch(`http://localhost:5000/chefDetails/${id}`)
@@ -18,30 +18,36 @@ const ChefDetail = () => {
     //console.log('ig', ingredients1)
     // console.log('element',ingredients1[0])
 
-    const handleFavorite =event=>{
-        
+    const handleFavorite = event => {
+
         setFavorite(true);
     }
     return (
         <div className='container'>
-            <Card >
-                <Card.Img
-                    style={{ width: '500px', height: '300px' }} className='p-2 mx-auto' variant="top" src=
-                    {chefImg} />
-                <Card.Body>
-                    <Card.Title>
-                        {name}
-                    </Card.Title>
-
+            <Card className='border-0 shadow' >
+                <div className='d-flex'>
                     <div>
-                        <div className='d-flex gap-5'>
-                            <p><small>Number of Likes: {likes}</small></p>
-                            <p><small>Number of recipe: {numberOfRecipe}</small></p>
-                        </div>
-                        <p>Years of Experience: {experience}</p>
-                        <p>Short Bio: {shortBio}</p>
+                        <Card.Img
+                            style={{ width: '300px', height: '300px' }} className='p-2 mx-auto' variant="top" src=
+                            {chefImg} />
                     </div>
-                </Card.Body>
+                    <div>
+                        <Card.Body>
+                            <Card.Title>
+                                {name}
+                            </Card.Title>
+
+                            <div>
+                                <div className='d-flex gap-5'>
+                                    <p><small>Number of Likes: {likes}</small></p>
+                                    <p><small>Number of recipe: {numberOfRecipe}</small></p>
+                                </div>
+                                <p>Years of Experience: {experience}</p>
+                                <p>Short Bio: {shortBio}</p>
+                            </div>
+                        </Card.Body>
+                    </div>
+                </div>
             </Card>
             <h2 className='mt-5 mb-2 text-center'>Recipe Details</h2>
             <hr></hr>
@@ -140,7 +146,7 @@ const ChefDetail = () => {
                         </tr>
                         <tr>
                             <th scope="row">3</th>
-                    
+
                             <td>{recipeName3}</td>
                             {/* <td>
                                 {
@@ -179,10 +185,10 @@ const ChefDetail = () => {
                         </tr>
                     </tbody>
                 </table>
-              <div className='d-flex justify-content-center'>  <Button
-                onClick={handleFavorite}
-                disabled={favorite}
-               className='mb-2' >Favorite </Button></div>
+                <div className='d-flex justify-content-center'>  <Button
+                    onClick={handleFavorite}
+                    disabled={favorite}
+                    className='mb-2' >Favorite </Button></div>
             </div>
         </div>
     );
