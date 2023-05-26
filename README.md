@@ -1,6 +1,6 @@
 # ChefRecipeHunter/RecipeHeaven Starter Repository
 
-Best Site For finding any types of job any where.(Assignment 10)
+Best Site For finding any types food details also chef information .(Assignment 10)
 
 ## Features
 * The Website with the Website name, Home, Blog and User profile picture. The user profile picture on the navbar is conditional. If the user is signed in, the navbar will show the profile picture; otherwise, it will show the Login button. If the user name is available, the user's name will be visible when the mouse hovers over the profile picture.
